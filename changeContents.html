@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Change Contents of An Element Notes</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Change Contents Notes</h1>
+            <div class="row">
+                <div>
+                    <label for="first">First Name</label>
+                    <input type="text" id="first" name="first_name" placeholder="Jane">
+                </div>
+                <div>
+                    <label for="last">Last Name</label>
+                    <input type="text" id="last" name="last_name" placeholder="Doe">
+                </div>
+            </div>
+            <button name="clear">Clear</button>
+            <p class="hidden"></p>
+        </div>
+    </div>
+<script>
+    const clearButton = document.querySelector('[name="clear"]');
+    const firstName = document.getElementById('first');
+    const lastName = document.getElementById('last');
+    const full =  document.querySelector('p');
+
+    firstName.addEventListener('change', nameCreator);
+    lastName.addEventListener('change', nameCreator);
+    clearButton.addEventListener('click', function(){
+        firstName.value = "";
+        lastName.value = "";
+        full.textContent = "";
+    })
+    function nameCreator(){
+        let first = firstName.value;
+        let last = lastName.value;
+        let fullName = `${first} ${last}`;
+        if (fullName.length>1){
+            full.classList.remove("hidden");
+        } else {
+            full.classList.add("hidden");
+        }
+        full.textContent = `Hello ${fullName}`;
+    }
+</script>
+</body>
+</html>

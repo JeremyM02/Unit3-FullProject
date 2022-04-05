@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="parent">
+    <label for="text1"></label>
+    <input type="text" id="text1">
+    <button id="button1">BUTTON</button>
+</div>
+<script>
+    console.log('Hello console! - line 13');
+
+    //Enter or type in text box
+    const inputElement = document.getElementById('text1');
+    console.log(inputElement);
+    const buttonElement = document.getElementById('button1');
+    console.log(buttonElement);
+
+    inputElement.addEventListener('change', function(e){
+        console.log(`CHANGE: The value you entered is ${e.target.value}`);
+    });
+    inputElement.addEventListener('input', function(e){
+        console.log(`INPUT: The value you just typed is ${e.target.value}`);
+    });
+
+    //Click button and parent div
+    const parentElement = document.getElementById('parent');
+    buttonElement.addEventListener('click', function(e){
+        console.log('You clicked on the button!');
+        e.stopPropagation();
+    });
+    parentElement.addEventListener('click', function(){
+        console.log('You clicked on the parent containing div.');
+    });
+
+    //Mouseover & Mouseout
+    buttonElement.addEventListener('mouseover', function(){
+        console.log('Your mouse is on the button');
+    });
+    buttonElement.addEventListener('mouseout', function(){
+        console.log('Your mouse is no longer on the button');
+    });
+
+    //Focus and blur
+    inputElement.addEventListener('focus', function(){
+        console.log('You focused on the input!');
+    });
+    inputElement.addEventListener('blur', function(){
+        console.log('You stopped focusing on the input!');
+    });
+
+    //Keydown
+    document.addEventListener('keydown', function(){
+        console.log(`You just hit the ${e.key} key`);
+    });
+</script>
+</body>
+</html>

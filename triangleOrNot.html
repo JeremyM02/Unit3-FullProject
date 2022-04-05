@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle?</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h3>Is it a triangle?</h3>
+        <div class="row">
+            <div>
+                <label for="a">A</label>
+                <input type="text" id="a" name="a" style="width: 100px;">
+            </div>
+            <div>
+                <label for="b">B</label>
+                <input type="text" id="b" name="b" style="width: 100px;">
+            </div>
+            <div>
+                <label for="c">C</label>
+                <input type="text" id="c" name="c" style="width: 100px;">
+            </div>
+        </div>
+        <button id="calc">Calculate</button>
+        <button id="clear">Clear</button>
+        <p class="hidden"></p>
+    </div>
+</div>
+<script>
+    const a = document.getElementById('a');
+    const b = document.getElementById('b');
+    const c = document.getElementById('c');
+    const ans = document.querySelector('p');
+    const calculateButton = document.getElementById('calc');
+    const clearButton = document.getElementById('clear');
+
+    calculateButton.addEventListener('click', function(){
+        let sideA = +a.value;
+        let sideB = +b.value;
+        let sideC = +c.value;
+        ans.classList.remove("hidden");
+
+        if(!checkIsValid(sideA) || !checkIsValid(sideB) || !checkIsValid(sideC)){
+            ans.textContent =  'Invalid Inputs';
+            return;
+        }
+        if (checkIsTri(sideA, sideB, sideC)){
+            ans.textContent = 'Yes, this makes a valid triangle';
+            return;
+        }
+        ans.textContent = 'Inputs do NOT create a valid triangle'
+    })
+    clearButton.addEventListener('click', function(){
+        a.value = " ";
+        b.value = " ";
+        c.value = " ";
+        ans.classList.add("hidden");
+    })
+    function checkIsTri(num1, num2, num3) {
+        let sideAB = (num1 + num2) > num3;
+        let sideAC = (num1 + num3) > num2;
+        let sideBC = (num2 + num3) > num1;
+
+        return sideAB && sideAC && sideBC;
+    }
+    function checkIsValid(num) {
+        if (isNaN(num)) {
+            return false
+        }
+        return num > 0;
+    }
+</script>
+</body>
