@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Picker</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .pink{
+            color: pink;
+        }
+        .teal{
+            color: teal;
+        }
+        .purple{
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="row">
+                <h3>Background</h3>
+                <button id="1">RED</button>
+                <button id="2">GREEN</button>
+                <button id="3">BLUE</button>
+            </div>
+            <div class="row">
+                <h3>Text</h3>
+                <button id="4">PINK</button>
+                <button id="5">TEAL</button>
+                <button id="6">PURPLE</button>
+            </div>
+            <button id="clear">CLEAR</button>
+        </div>
+    </div>
+<script>
+    const content = document.querySelector('.content');
+    const red = document.getElementById('1');
+    const green = document.getElementById('2');
+    const blue = document.getElementById('3');
+
+    const pink = document.getElementById('4');
+    const teal = document.getElementById('5');
+    const purple = document.getElementById('6');
+
+    const clear = document.getElementById('clear');
+
+    //BACKGROUND COLORS
+    red.addEventListener('click', function(){
+        removeBColor();
+        content.classList.add('red');
+    });
+    blue.addEventListener('click', function(){
+        removeBColor();
+        content.classList.add('blue');
+    });
+    green.addEventListener('click', function(){
+        removeBColor();
+        content.classList.add('green');
+    });
+
+    //TEXT COLORS
+    pink.addEventListener('click', function(){
+        removeTextColor();
+        content.classList.add('pink');
+    });
+    teal.addEventListener('click', function(){
+        removeTextColor();
+        content.classList.add('teal');
+    });
+    purple.addEventListener('click', function(){
+        removeTextColor();
+        content.classList.add('purple');
+    });
+
+    //CLEAR BUTTON
+    clearButton.addEventListener('click', function(){
+        removeTextColor();
+        removeBColor();
+    });
+    function removeBColor(){
+        content.classList.remove('red');
+        content.classList.remove('blue');
+        content.classList.remove('green');
+    }
+
+    function removeTextColor(){
+        content.classList.remove('pink');
+        content.classList.remove('teal');
+        content.classList.remove('purple');
+    }
+</script>
+</body>
+</html>
