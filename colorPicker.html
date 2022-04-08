@@ -23,6 +23,30 @@
         .purple{
             color: purple;
         }
+
+    /*    Other Colors*/
+        .orange{
+            background-color: orange;
+        }
+        .greenyellow{
+            background-color: greenyellow;
+        }
+        .azure{
+            background-color: azure;
+        }
+
+        .brown{
+            color: brown;
+        }
+        .indigo{
+            color: indigo;
+        }
+        .navy{
+            color: navy;
+        }
+        .hidden{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -38,16 +62,23 @@
                 <button id="1">RED</button>
                 <button id="2">GREEN</button>
                 <button id="3">BLUE</button>
+                <button id="7">ORANGE</button>
+                <button id="8">GREEN-YELLOW</button>
+                <button id="9">AZURE</button>
             </div>
             <div class="row">
                 <h3>Text</h3>
                 <button id="4">PINK</button>
                 <button id="5">TEAL</button>
                 <button id="6">PURPLE</button>
+                <button id="10">BROWN</button>
+                <button id="11">INDIGO</button>
+                <button id="12">NAVY</button>
             </div>
             <button id="clear">CLEAR</button>
         </div>
     </div>
+    <p class="hidden red green blue pink teal purple orange greenyellow azure brown indigo navy"></p>
 <script>
     const content = document.querySelector('.content');
     const red = document.getElementById('1');
@@ -57,6 +88,14 @@
     const pink = document.getElementById('4');
     const teal = document.getElementById('5');
     const purple = document.getElementById('6');
+
+    const orange = document.getElementById('7');
+    const greenyellow = document.getElementById('8');
+    const azure = document.getElementById('9');
+
+    const brown = document.getElementById('10');
+    const indigo = document.getElementById('11');
+    const navy = document.getElementById('12');
 
     const clear = document.getElementById('clear');
 
@@ -73,6 +112,18 @@
         removeBColor();
         content.classList.add('green');
     });
+    orange.addEventListener('click', function(){
+        removeBColor();
+        content.classList.add('orange');
+    });
+    greenyellow.addEventListener('click', function(){
+        removeBColor();
+        content.classList.add('greenyellow');
+    });
+    azure.addEventListener('click', function(){
+        removeBColor();
+        content.classList.add('azure');
+    });
 
     //TEXT COLORS
     pink.addEventListener('click', function(){
@@ -87,9 +138,22 @@
         removeTextColor();
         content.classList.add('purple');
     });
+    brown.addEventListener('click', function(){
+        removeTextColor();
+        content.classList.add('brown');
+    });
+    indigo.addEventListener('click', function(){
+        removeTextColor();
+        content.classList.add('indigo');
+    });
+    navy.addEventListener('click', function(){
+        removeTextColor();
+        content.classList.add('navy');
+    });
+
 
     //CLEAR BUTTON
-    clearButton.addEventListener('click', function(){
+    clear.addEventListener('click', function(){
         removeTextColor();
         removeBColor();
     });
@@ -97,12 +161,18 @@
         content.classList.remove('red');
         content.classList.remove('blue');
         content.classList.remove('green');
+        content.classList.remove('orange');
+        content.classList.remove('greenyellow');
+        content.classList.remove('azure');
     }
 
     function removeTextColor(){
         content.classList.remove('pink');
         content.classList.remove('teal');
         content.classList.remove('purple');
+        content.classList.remove('brown');
+        content.classList.remove('indigo');
+        content.classList.remove('navy');
     }
 </script>
 </body>
