@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h3>What is this</h3>
+        <h4>I dont want this</h4>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+    //Replace contents of an html tag using innerHTML
+    content.innerHTML = '<h1>Stuff was changed</h1><h4>This was also changed</h4>';
+
+    const added =  document.createElement('h1');
+    added.innerHTML = 'Stuff was added';
+    content.appendChild(added);
+    content.appendChild(added);
+
+    const addedToo = document.createElement('h2');
+    const addedThen = document.createElement('h3');
+    const addedIGuess = document.createElement('h4');
+
+    addedToo.innerHTML = 'But then this was added';
+    addedThen.innerHTML = 'and then this too';
+    addedIGuess.innerHTML = 'maybe this too, i guess';
+
+    content.appendChild(addedToo);
+    content.appendChild(addedThen);
+    content.appendChild(addedIGuess);
+</script>
+</body>
