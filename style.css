@@ -9,8 +9,8 @@ body{
 label {
     display: block;
     line-height: 1.25rem;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 20px;
     color: #374151;
 }
 
