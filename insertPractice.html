@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Insert Practice</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .container{
+            display: block;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -15,7 +20,7 @@
 <script>
     const content = document.querySelector('.content');
     //Replace contents of an html tag using innerHTML
-    content.innerHTML = '<h1>Stuff was changed</h1><h4>This was also changed</h4>';
+    content.innerHTML = '<h1 id="stuff">Stuff was changed</h1><h4>This was also changed</h4><h3 class="unexisting">This does not exist</h3>';
 
     const added =  document.createElement('h1');
     added.innerHTML = 'Stuff was added';
@@ -33,5 +38,21 @@
     content.appendChild(addedToo);
     content.appendChild(addedThen);
     content.appendChild(addedIGuess);
+
+    //put this at the top in addition to existing elements
+    const food = document.createElement('h1');
+    food.innerHTML = 'Pizza exists';
+    content.insertAdjacentElement('afterend', food);
+
+    //to remove an element
+    const unwantedElement = document.querySelector('h4');
+    unwantedElement.remove();
+
+    const uneededElement = document.querySelector('#stuff');
+    uneededElement.remove();
+
+    const dislikedElement = document.querySelector('.unexisting');
+    dislikedElement.remove();
 </script>
 </body>
+</html>
