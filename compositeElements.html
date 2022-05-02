@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elements Inside Elements</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+        </div>
+    </div>
+
+<script>
+    const content = document.querySelector('.content');
+
+    const newList = document.createElement('ul');
+    const newItem = document.createElement('li');
+    const anchor = document.createElement('a');
+
+    anchor.textContent = "Click Me!";
+    anchor.href = 'http://www.google.com';
+    anchor.target = '_blank';
+
+    newItem.appendChild(anchor);
+    newList.appendChild(newItem);
+    content.appendChild(newList);
+</script>
+</body>
