@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insert Practice</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container{
+      display: flex;
+      flex-direction: row;
+      column-gap: 16px;
+    }
+    .content{
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+      width: 50%;
+    }
+    button{
+      border: 2px solid black;
+      flex: 1;
+    }
+    img{
+      background-color: white;
+      border-radius: 500px;
+      width: 256px;
+    }
+    .character-name{
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <button id="hat-man">Hat Man</button>
+    <button id="happy-man">Happy Man</button>
+    <button id="cool-man">Cool Man</button>
+    <button id="box-man">Box Man</button>
+    <button id="cooler-man">Cooler Man</button>
+    <button id="invisible-man">Invisible Man</button>
+  </div>
+  <div>
+    <p class="character-name">Your Character: Normal Man</p>
+    <img src="https://api-private.atlassian.com/users/8b3597e8a7d1d8f2ed7f58bcab1946b8/avatar" alt="Your Character">
+  </div>
+
+</div>
+
+<script>
+  const hatButton = document.getElementById('hat-man');
+  const happyButton = document.getElementById('happy-man');
+  const coolButton = document.getElementById('cool-man');
+  const madButton = document.getElementById('box-man');
+  const coolerButton = document.getElementById('cooler-man');
+  const invisibleButton = document.getElementById('invisible-man');
+
+  const picture = document.querySelector('img');
+  const characterName  = document.querySelector('.character-name');
+
+  hatButton.addEventListener('click', function(){
+    picture.src='images/hat-man.png';
+    picture.alt='Image of hat man, wearing a PNG of a small hat';
+    characterName.textContent = "Your Character: Hat Man";
+  });
+
+  happyButton.addEventListener('click', function(){
+    picture.src='images/happy-man.png';
+    picture.alt='Image of happy man, with a great smile.';
+    characterName.textContent = "Your Character: Happy Man";
+  });
+
+  coolButton.addEventListener('click', function(){
+    picture.src='images/cool-man.png';
+    picture.alt='Image of cool man, he has a cool hat';
+    characterName.textContent = "Your Character: Cool Man";
+  });
+
+  madButton.addEventListener('click', function(){
+    picture.src='images/box-man.png';
+    picture.alt='Image of box man, with a boxy head';
+    characterName.textContent = "Your Character: Box Man";
+  });
+
+  coolerButton.addEventListener('click', function(){
+    picture.src='images/cooler-man.png';
+    picture.alt='Image of cooler man, he has a cool hat AND shades';
+    characterName.textContent = "Your Character: Cooler Man";
+  });
+
+  invisibleButton.addEventListener('click', function(){
+    picture.src='images/invisible-man.png';
+    picture.alt='Image of invisible man, where is he?';
+    characterName.textContent = "Your Character: Invisible Man";
+  });
+
+
+</script>
+</body>
