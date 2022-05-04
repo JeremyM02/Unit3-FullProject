@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Timers</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #fade{
+            width: 100px;
+            opacity: 1;
+            transition: opacity 3s;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -13,13 +20,66 @@
         <button id="interval">Repeat</button>
         <button id="cancel">Cancel Repeat</button>
     </div>
+
+    <div class="content colorful">
+        <button id="color-change">Change Colors</button>
+        <button id="color-stop">Stop Change</button>
+    </div>
+
+    <button id="fade">Fade</button>
+
 </div>
 
 <script>
+    const colorfulDiv = document.querySelector('.colorful');
+    const colorButton = document.getElementById('color-change');
+    let colorArray = ['#D4F2DB', '#cef7a0', '#ba9790', '#914d76', '#69353f'];
+    let colorInterval;
+
+    const stopColorButton = document.getElementById('color-stop');
+
     const myButton = document.getElementById("trigger");
     const repeatButton = document.getElementById("interval");
     const cancelButton = document.getElementById("cancel");
     let interval;
+
+    const fadeButton = document.getElementById("fade");
+
+    const randomizeColor  = array => array[Math.floor(Math.random() * (array.length - 1))];
+    colorButton.addEventListener('click', function(){
+        if (!colorInterval) {
+            colorInterval = setInterval(function(){
+                colorfulDiv.style.backgroundColor = randomizeColor(colorArray);
+                console.log('Color has changed!')
+            }, 5000);
+        } else {
+            console.log('Color interval already exists');
+        }
+    });
+
+    stopColorButton.addEventListener('click', function(){
+        if (colorInterval){
+            clearInterval(colorInterval);
+            colorInterval = null;
+            console.log('COLOR INTERVAL STOPPED');
+        } else {
+            console.log('No color interval found');
+        }
+    });
+
+    fadeButton.addEventListener('click', function(){
+        fadeButton.disabled = true;
+        fadeButton.style.opacity = 0;
+        console.log("Fade Button: goodbye...");
+        setTimeout(function(){
+            fadeButton.remove();
+            console.log('The fade button no longer exists');
+        }, 3000)
+    });
+
+
+
+
     myButton.addEventListener('click', function(){
         setTimeout(function(){
             //Occurs in 1000ms after click, or 1 second.
