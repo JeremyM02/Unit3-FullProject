@@ -4,51 +4,7 @@
     <meta charset="UTF-8">
     <title>Click Card Game!</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <style>
-        * {
-            font-family: "Courier New", monospace;
-        }
-        .cardList{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .card{
-            width: 225px;
-            height: 300px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: white;
-            border: 1px solid black;
-            opacity: 1;
-            font-weight: bold;
-
-            transition: background-color 0.5s, color 0.5s, opacity 0.5s;
-        }
-        .active{
-            background-color: #47A747;
-        }
-        .inactive{
-            background-color: #df2935;
-            color: black;
-        }
-        .content{
-            width: 1575px;
-        }
-        #result-text{
-            font-weight: bold;
-            font-size: 40px;
-            text-align: center;
-        }
-        #score{
-            position: fixed;
-            right: 50px;
-            font-size: 40px;
-        }
-    </style>
+    <link href="cardClickGame.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="container">
@@ -58,7 +14,11 @@
             </div>
             <p id="result-text"></p>
         </div>
-        <p id="score">Score: 0</p>
+        <div id="ui">
+            <p id="score">Score: 0</p>
+            <p id="combo">Combo: 1.0x</p>
+            <p id="click-counter">Clicks: 0</p>
+        </div>
     </div>
 <script src="index.js"></script>
 </body>
