@@ -22,7 +22,7 @@
     transition: background-color 0.5s, color 0.5s, opacity 0.5s;
 }
 .active{
-    background-color: #47A747;
+    background-color: palegreen;
 }
 .inactive{
     background-color: #df2935;

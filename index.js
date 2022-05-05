@@ -69,6 +69,8 @@ cardList.addEventListener('click', function(e){
         console.log('----------');
         return
     }
+
+    //AT THIS POINT, A CARD HAS BEEN CLICKED.
     e.target.style.opacity = 0;
 
     score += 10 * combo;
@@ -78,16 +80,15 @@ cardList.addEventListener('click', function(e){
     console.log('Score: ', score);
     console.log('Combo: ', combo);
 
+    let numChildren = cardList.children.length - 1;
     setTimeout(function(){
         e.target.remove();
     }, 500);
 
-    let children = cardList.children;
-    console.log(children.length);
-    console.log('Cards Left: ', children.length);
+    console.log('Cards Left: ', numChildren);
     console.log('----------');
-
-    if (children.length === 1){
+    if (numChildren <= 1){
         clearInterval(interval);
     }
+
 });
