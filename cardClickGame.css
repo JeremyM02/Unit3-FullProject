@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 36px;
     color: white;
     border: 1px solid black;
     opacity: 1;
@@ -48,4 +48,5 @@
     border: solid 3px black;
     border-radius: 20px;
     padding: 5px;
+    text-align: center;
 }
